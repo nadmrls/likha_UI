@@ -1,6 +1,6 @@
 {
-    "name": "likha_ui",
-    "short_name": "likha_ui",
+    "name": "likhaui",
+    "short_name": "likhaui",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,3 +1,3 @@
-# likha_ui
+# likhaui
 
 A new Flutter project.
