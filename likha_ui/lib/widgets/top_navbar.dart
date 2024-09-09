@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:likhaui/utils/values/constants.dart';
 
 class TopNavbar extends StatelessWidget {
-  final VoidCallback onButtonPressed;
+  final VoidCallback? onButtonPressed;
   final String centerText;
   final bool rightButton;
   final String rightButtonText; 
@@ -12,7 +12,7 @@ class TopNavbar extends StatelessWidget {
     required this.centerText,
     required this.rightButton,
     this.rightButtonText = 'Edit', 
-    required this.onButtonPressed, 
+    this.onButtonPressed,
   });
 
   @override
@@ -29,21 +29,25 @@ class TopNavbar extends StatelessWidget {
             style: TextButton.styleFrom(
               backgroundColor: Colors.grey[300],
             ),
-            child: const Row(
+            child:  Row(
               children: [
                 Icon(
                   Icons.arrow_back_ios_new_rounded,
                   color: Colors.black,
-                  size: 20,
+                  size: 15,
                 ),
+                SizedBox(width: 5,),
                 Text(
                   'Back',
                   style: TextStyle(
                     color: Colors.black,
                     fontFamily: 'Arial',
                     fontWeight: FontWeight.bold,
+                    fontSize: 14
                   ),
                 ),
+                SizedBox(width: 5,),
+
               ],
             ),
           ),

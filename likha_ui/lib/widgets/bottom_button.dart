@@ -16,9 +16,9 @@ class BottomButton extends StatelessWidget {
           backgroundColor: AppColors.primaryColor,
           foregroundColor: AppColors.whiteColor,
           textStyle: const TextStyle(
-            fontSize: 20,
+            fontSize: 15,
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 25),
+          padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
         ),
         child:  Text(buttontxt),
       ),

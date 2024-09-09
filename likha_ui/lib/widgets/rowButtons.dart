@@ -36,7 +36,7 @@ class Rowbuttons extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               ),
               child: const Text(AppStrings.pngButtonText),
             ),
@@ -56,7 +56,7 @@ class Rowbuttons extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               ),
               child: const Text(AppStrings.wordButtonText),
             ),
@@ -76,7 +76,7 @@ class Rowbuttons extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               ),
               child: const Text(AppStrings.printButtonText),
             ),

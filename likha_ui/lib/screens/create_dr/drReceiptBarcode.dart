@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:likhaui/screens/create_dr/create_drWidgets/barcodeContainerWidget.dart';
-import 'package:likhaui/screens/status/statusWidgets/rowButtons.dart';
+import 'package:likhaui/widgets/rowButtons.dart';
 import 'package:likhaui/utils/values/constants.dart';
 import 'package:likhaui/widgets/bottom_button.dart';
 import 'package:likhaui/widgets/dialogs/done_diolog.dart';
@@ -33,7 +33,6 @@ class Drreceiptbarcode extends StatelessWidget {
                           LogoSection(),
                           Barcodecontainerwidget(invoiceInfo: AppData.invoiceBarcode,),
                           SizedBox(height: 15,),
-
                           Rowbuttons(onPngButtonPressed: (){}, onWordButtonPressed: (){}, onPrintButtonPressed: (){})
 
                           

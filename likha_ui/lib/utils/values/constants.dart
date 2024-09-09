@@ -49,11 +49,68 @@ class AppStrings {
   static const String btntwo_DRList =   'Move as Validated';
 
 
+  static const String statisticTextOne = 'Packed';
+  static const String statisticTextTwo = 'Validated';
+  static const String statisticTextThree = 'In Logistics';
+  static const String statisticTextFour = 'In Transit';
+  static const String statisticTextFive = 'Delivered';
+
+  static const String statisticValueOne = '700';
+  static const String statisticValueTwo = '200';
+  static const String statisticValueThree = '100';
+  static const String statisticValueFour = '200';
+  static const String statisticValueFive = '200';
+
+  static const String ProductcreatedTitle = 'Products Created';
+  static const String ProductcreatedValue = '300';
+
+  static const String PackagecreatedTitle = 'Packages Created';
+  static const String PackagecreatedValue = '5';
+
+  static const String btnImageTextone = 'START DELIVERY';
+  static const String btnImageTexttwo = 'Create DR and deliver them.';
+
+
 }
 
 
 class AppData {
   static const List<Map<String, String>>  dataListDR = [
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '09096655351',
+      'date': '09-12-2021',
+      'time': '7:09 PM'
+    },
+    {
+      'drID': 'QEJ7J8F0KH4',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
     {
       'drID': 'QEJ7J8F0KH3',
       'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
@@ -103,20 +160,6 @@ class AppData {
     },
     {
       'drID': 'QEJ7J8F0KH4',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
       'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
       'number': '12123123090909',
       'date': '09-12-2021',
@@ -249,6 +292,75 @@ class AppData {
       'date': '09-12-2021',
       'time': '0999'
     },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '7:09 PM'
+    },
+    {
+      'drID': 'QEJ7J8F0KH4',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },{
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '7:09 PM'
+    },
+    {
+      'drID': 'QEJ7J8F0KH4',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
 
 
   ];
@@ -340,6 +452,28 @@ class AppData {
 
 
 class AppTextStyles {
+  static  const TextStyle allDRstyletitle = TextStyle(
+    fontSize: 15,
+    color: Colors.black87
+
+  );
+
+  static const TextStyle allDRstylevalue= TextStyle(
+    fontFamily: 'Arial',
+    fontSize: 25,
+    color: AppColors.primaryColor,
+    fontWeight: FontWeight.bold
+
+  );
+
+  static const TextStyle packageTitle= TextStyle(
+    fontFamily: 'Arial',
+    fontSize: 18,
+    color: AppColors.primaryColor,
+    fontWeight: FontWeight.bold
+
+  );
+
   static const TextStyle commonTextStyleOne = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.bold,
@@ -360,20 +494,20 @@ class AppTextStyles {
   static const TextStyle titleStyle = TextStyle(
     fontWeight: FontWeight.bold,
     fontFamily: 'Arial',
-    fontSize: 24,
+    fontSize: 20,
     color: AppColors.textColor,
   );
 
   static const TextStyle drListStyle = TextStyle(
     fontWeight: FontWeight.bold,
     fontFamily: 'Arial',
-    fontSize: 18,
+    fontSize: 15,
     color: AppColors.primaryColor,
   );
 
   static const TextStyle seeAllStyle = TextStyle(
     fontFamily: 'Arial',
-    fontSize: 18,
+    fontSize: 15,
     color: AppColors.primaryColor,
   );
 
@@ -450,6 +584,22 @@ class AppTextStyles {
     fontFamily: 'Arial',
     fontStyle: FontStyle.italic
   );
+   static const TextStyle btnStartDelivery = TextStyle(
+  fontSize: 15.0,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+  );
+
+  static const TextStyle btnStartDeliveryText = TextStyle(
+    fontSize: 11.0,
+    color: Colors.white,
+  );
+
+  static const InputDecoration textFieldDecor = InputDecoration(
+      border: InputBorder.none, 
+      contentPadding: EdgeInsets.symmetric(vertical: 3.5), 
+      isDense: true 
+  );
   
 
 
@@ -464,11 +614,11 @@ class CustomDecorations {
 
   static const BoxDecoration decorationWithImage = BoxDecoration(
     image: DecorationImage(
-      image: AssetImage('assets/images/bg_imagebtn.png'), // Replace with your image path
+      image: AssetImage('assets/images/bg_imagebtn.png'),
       fit: BoxFit.cover,
     ),
     borderRadius: BorderRadius.all(Radius.circular(20.0)),
   );
-
 }
+
 

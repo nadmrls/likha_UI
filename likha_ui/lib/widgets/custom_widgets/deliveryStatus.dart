@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:likhaui/screens/status/statusWidgets/orderTracker.dart';
 import 'package:likhaui/utils/values/constants.dart';
 
 class DeliveryStatusWidget extends StatelessWidget {
   final double screenWidth;
+  final String contact;
 
-  const DeliveryStatusWidget({super.key, required this.screenWidth});
+  const DeliveryStatusWidget({super.key, 
+  required this.screenWidth, required this.contact, });
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +32,16 @@ class DeliveryStatusWidget extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Text(
-                    AppStrings.contactHere,
+                  Text(
+                    contact,
                     style: AppTextStyles.deliveryStatusStyle,
                   ),
                   TextButton(
                     onPressed: () {
-                      Clipboard.setData(const ClipboardData(text: AppStrings.contactHere));
+                      Clipboard.setData( ClipboardData(text:contact));
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Contact Information Copied to Clipboard")),
+                         const SnackBar(content: Text("Contact Information Copied to Clipboard",
+                        textAlign: TextAlign.center,)),
                       );
                     },
                     style: TextButton.styleFrom(

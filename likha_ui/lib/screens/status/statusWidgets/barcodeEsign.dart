@@ -4,6 +4,8 @@ import 'package:likhaui/utils/values/constants.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:signature/signature.dart';
 
+import '../../../widgets/bottom_button.dart';
+
 
 class Barcodeesign extends StatefulWidget {
   final String barcode_data;
@@ -59,8 +61,11 @@ class _BarcodeesignState extends State<Barcodeesign> {
               ),
             ),
           ),
-          SizedBox(height: 15,),
+
           if(widget.show_esign)
+            SizedBox(height: 15,),
+          if(widget.show_esign)
+
           Container(
             alignment: Alignment.bottomLeft,
             child: const Padding(
@@ -105,8 +110,7 @@ class _BarcodeesignState extends State<Barcodeesign> {
 
           SizedBox(height: 15,),
           if(widget.show_savebtn)
-           ElevatedButton(
-            onPressed: () async {
+            BottomButton(buttontxt: 'Save as/Print DR', onButtonPressed: () async {
               final signature = await _controller.toPngBytes();
               if (signature != null) {
                 Navigator.push(
@@ -119,17 +123,32 @@ class _BarcodeesignState extends State<Barcodeesign> {
                   const SnackBar(content: Text("Signature Required.")),
                 );
               }
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primaryColor, // Background color
-              foregroundColor: AppColors.whiteColor, // Text color
-              textStyle: const TextStyle(
-                fontSize: 20, // Font size
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20), // Button size
-            ),
-            child: const Text(AppStrings.saveAsPrintButtonText),
-          ),
+            },)
+          //  ElevatedButton(
+          //   onPressed: () async {
+          //     final signature = await _controller.toPngBytes();
+          //     if (signature != null) {
+          //       Navigator.push(
+          //         context,
+          //         MaterialPageRoute(builder: (context) => Printdr(eSignature: signature,)),
+          //       );
+          //
+          //     } else{
+          //       ScaffoldMessenger.of(context).showSnackBar(
+          //         const SnackBar(content: Text("Signature Required.")),
+          //       );
+          //     }
+          //   },
+          //   style: ElevatedButton.styleFrom(
+          //     backgroundColor: AppColors.primaryColor, // Background color
+          //     foregroundColor: AppColors.whiteColor, // Text color
+          //     textStyle: const TextStyle(
+          //       fontSize: 20, // Font size
+          //     ),
+          //     padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20), // Button size
+          //   ),
+          //   child: const Text(AppStrings.saveAsPrintButtonText),
+          // ),
 
           
         ],

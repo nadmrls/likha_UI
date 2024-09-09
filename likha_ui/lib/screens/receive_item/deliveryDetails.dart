@@ -11,7 +11,8 @@ import 'package:signature/signature.dart';
 
 class Deliverydetails extends StatefulWidget {
   final String barcode;
-  const Deliverydetails({super.key, required this.barcode});
+  final String contact;
+  const Deliverydetails({super.key, required this.barcode, required this.contact});
 
   @override
   State<Deliverydetails> createState() => _DeliverydetailsState();
@@ -22,6 +23,7 @@ class _DeliverydetailsState extends State<Deliverydetails> {
     penStrokeWidth: 5,
     penColor: Colors.black,
   );
+   bool isEditing = false; 
   
   @override
   Widget build(BuildContext context) {
@@ -35,13 +37,14 @@ class _DeliverydetailsState extends State<Deliverydetails> {
               children: [
                 Container(
                   margin: EdgeInsets.only(top: 10),
-                  child: TopNavbar(centerText: 'Delivery Details', rightButton: true, rightButtonText: 'Edit', onButtonPressed: () {  },)),
+                  child: const TopNavbar(centerText: 'Delivery Details', rightButton: false),
+                ),//here
                  Expanded(
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
                         SizedBox(height: 15,),
-                        DeliveryStatusWidget(screenWidth: screenWidth,),
+                        DeliveryStatusWidget(screenWidth: screenWidth, contact: widget.contact,),
                         SizedBox(height: 15,),
                         Container(
                               margin: EdgeInsets.only(left: 30),
@@ -52,7 +55,7 @@ class _DeliverydetailsState extends State<Deliverydetails> {
                               ),
                             ),
                         SizedBox(height: 15,),
-                        Sendpackage(senderInfo: AppData.del_detailssend, recipientInfo:AppData.del_detailsres,),
+                        Sendpackage(senderInfo: AppData.del_detailssend, recipientInfo:AppData.del_detailsres,isEditing: isEditing,),
                         SizedBox(height: 15,),
 
                         Container(
@@ -99,6 +102,17 @@ class _DeliverydetailsState extends State<Deliverydetails> {
                             ),
                             SizedBox(height: 15,),
                             Barcodeesign(barcode_data: widget.barcode, show_savebtn: false, show_esign: false,),
+                            Container(
+                              alignment: Alignment.bottomLeft,
+                              child: const Padding(
+                                padding: EdgeInsets.only(left: 30.0),
+                                child: Text(
+                                  AppStrings.signatureOfReceiver,
+                                  style: AppTextStyles.greenTextStyle,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 15,),
                             SizedBox(
                               height: 180,
                               width: double.infinity,
@@ -112,6 +126,7 @@ class _DeliverydetailsState extends State<Deliverydetails> {
                                 ),
                               ),
                             ),
+
                             SizedBox(height: 15,),
                             ElevatedButton(
                               onPressed: () {

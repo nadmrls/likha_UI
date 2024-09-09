@@ -29,6 +29,7 @@ class OrderReceivedContainer extends StatelessWidget {
             ),
             Positioned(
               top: 4,
+              left: -13,
               child: Image.asset(
                 'assets/images/deliveryman.png',
                 width: 180,
@@ -36,7 +37,7 @@ class OrderReceivedContainer extends StatelessWidget {
               ),
             ),
             const Positioned(
-              top: 12,
+              top: 20,
               left: 100,
               right: 0,
               child: Align(
@@ -45,7 +46,7 @@ class OrderReceivedContainer extends StatelessWidget {
                   AppStrings.orderReceived,
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 15,
                     color: AppColors.whiteColor,
                     fontWeight: FontWeight.bold,
                   ),

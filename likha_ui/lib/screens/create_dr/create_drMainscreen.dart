@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:likhaui/screens/create_dr/create_drWidgets/filterBtns.dart';
 import 'package:likhaui/utils/values/constants.dart';
-import 'package:likhaui/widgets/dialogs/alert_dialog.dart';
 import 'package:likhaui/widgets/top_navbar.dart';
 
 class Viewdrlist extends StatefulWidget {
@@ -31,92 +30,104 @@ class _ViewdrlistState extends State<Viewdrlist> {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(10),
-        child: Column(
+      bottomNavigationBar: !_showIcons ? buttons() : null,
+      body: SafeArea(
+        child: Stack(
           children: [
-            TopNavbar(
-              centerText: 'DR List',
-              rightButton: true,
-              onButtonPressed: () {
-                if (isTextButtonEnabled) {
-                  _toggleIconsVisibility();
-                }
-              },
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: screenHeight * 0.85,
-              child: SingleChildScrollView(
-                child: ButtonAndContainers(
-                  showIcons: _showIcons,
-                  showIconsTwo: _showIconsTwo,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TopNavbar(
+                  centerText: 'DR List',
+                  rightButton: true,
+                  onButtonPressed: () {
+                    if (isTextButtonEnabled) {
+                      _toggleIconsVisibility();
+                    }
+                  },
                 ),
-              ),
+                SizedBox(height: 10),
+
+                Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                          child: SingleChildScrollView(
+                            child: ButtonAndContainers(
+                              showIcons: _showIcons,
+                              showIconsTwo: _showIconsTwo,
+                            ),
+                          ),
+                        ),],
+                      ),
+                    ))
+              ],
             ),
-            if (!_showIcons)
-              Container(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: _toggleIconsVisibilityTwo,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.whiteColor,
-                          foregroundColor: AppColors.primaryColor,
-                          textStyle: const TextStyle(
-                            // fontSize: 16,
-                          ),
-                          side: const BorderSide(
-                            color: AppColors.primaryColor,
-                            width: 1.0,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                        ),
-                        child: const Text(
-                          AppStrings.btnone_DRList,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // showAlertMessage(context, "message");
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primaryColor,
-                          foregroundColor: AppColors.whiteColor,
-                          textStyle: const TextStyle(
-                            // fontSize: 16,
-                          ),
-                          side: const BorderSide(
-                            color: AppColors.primaryColor,
-                            width: 1.0,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                        ),
-                        child: const Text(
-                          AppStrings.btntwo_DRList,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-          ],
+          ]
         ),
+      ),
+    );
+  }
+
+  Container buttons() {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      child: Row(
+        children: [
+          Expanded(
+            child: ElevatedButton(
+              onPressed: _toggleIconsVisibilityTwo,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.whiteColor,
+                foregroundColor: AppColors.primaryColor,
+                textStyle: const TextStyle(
+                  // fontSize: 16,
+                ),
+                side: const BorderSide(
+                  color: AppColors.primaryColor,
+                  width: 1.0,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              ),
+              child: const Text(
+                AppStrings.btnone_DRList,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          const SizedBox(width: 20),
+          Expanded(
+            child: ElevatedButton(
+              onPressed: () {
+                // showAlertMessage(context, "message");
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.primaryColor,
+                foregroundColor: AppColors.whiteColor,
+                textStyle: const TextStyle(
+                  // fontSize: 16,
+                ),
+                side: const BorderSide(
+                  color: AppColors.primaryColor,
+                  width: 1.0,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              ),
+              child: const Text(
+                AppStrings.btntwo_DRList,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

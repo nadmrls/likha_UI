@@ -5,9 +5,20 @@ import 'package:likhaui/widgets/custom_widgets/deliveryStatus.dart';
 import 'package:likhaui/widgets/custom_widgets/sendPackage.dart';
 import 'package:likhaui/widgets/top_navbar.dart';
 
-class DeliverystatusCreateDR extends StatelessWidget {
+class DeliverystatusCreateDR extends StatefulWidget {
   final String dr_id;
-  const DeliverystatusCreateDR({super.key, required this.dr_id});
+  final String contact;
+  const DeliverystatusCreateDR({super.key, required this.dr_id, required this.contact});
+
+  @override
+  State<DeliverystatusCreateDR> createState() => _DeliverystatusCreateDRState();
+}
+
+class _DeliverystatusCreateDRState extends State<DeliverystatusCreateDR> {
+
+  bool isEditing = false; 
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +30,22 @@ class DeliverystatusCreateDR extends StatelessWidget {
             Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              TopNavbar(centerText: dr_id, rightButton: true, onButtonPressed: () {},),
+              TopNavbar(
+                    centerText: widget.dr_id,
+                    rightButton: true,
+                    rightButtonText: isEditing ? 'Cancel' : 'Edit', // Toggle button text
+                    onButtonPressed: () {
+                      setState(() {
+                        isEditing = !isEditing; // Toggle the isEditing flag
+                      });
+                    },
+                  ),
               SizedBox(height: 15,),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      DeliveryStatusWidget(screenWidth: screenWidth,),
+                      DeliveryStatusWidget(screenWidth: screenWidth, contact: widget.contact,),
                       SizedBox(height: 15,),
                       Container(
                         margin: EdgeInsets.only(left: 40),
@@ -36,7 +56,7 @@ class DeliverystatusCreateDR extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 15,),
-                      Sendpackage(senderInfo: AppData.sender, recipientInfo:AppData.recipient,),
+                      Sendpackage(senderInfo: AppData.sender, recipientInfo:AppData.recipient,isEditing: isEditing,),
                       SizedBox(height: 15,),
 
                       Container(

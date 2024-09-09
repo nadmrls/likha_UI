@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:likhaui/screens/create_dr/create_drMainscreen.dart';
 import 'package:likhaui/screens/create_dr/deliveryStatus.dart';
 import 'package:likhaui/screens/create_dr/drReceiptBarcode.dart';
+import 'package:likhaui/screens/mainscreen_dr/mainScreenItems.dart';
+import 'package:likhaui/screens/mainscreen_dr/mainScreenStatistics.dart';
 import 'package:likhaui/screens/receive_item/barcodeScanner.dart';
 import 'package:likhaui/screens/receive_item/deliveryDetails.dart';
 import 'package:likhaui/screens/receive_item/deliveryReceipt.dart';
@@ -20,14 +22,15 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: StatusDrmainscreen(),
-      // home: ReceiveItemmainscreen(),
       // home: BarcodeScanner(username: 'User',),
       // home: Deliverydetails(barcode: 'leenardmorales',),
-      // home: Deliveryreceipt(),
-      // home: CreateDrmainscreen(),
-      home: Viewdrlist(),
-      // home: DeliverystatusCreateDR(dr_id: '213123',),
+      // home: Deliveryreceipt(eSignature: null,),
+      // home: Viewdrlist(),
+      // home: DeliverystatusCreateDR(dr_id: '213123', contact: '1`1`11`1`',),
       // home: Drreceiptbarcode(),
+      // home: Mainscreenitems(),
+      home: DrStatistics(),
+      
 
 
     );
