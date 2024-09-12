@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:likhaui/utils/values/constants.dart';
 
-
-
 class ImageWithButton extends StatelessWidget {
   final double screenHeight;
   final double screenWidth;
@@ -25,8 +23,6 @@ class ImageWithButton extends StatelessWidget {
       width: screenWidth * 1,
       child: Stack(
         children: [
-
-
           Positioned(
             top: 100,
             left: screenWidth * 0.05,

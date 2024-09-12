@@ -8,15 +8,15 @@ class AppColors {
   static const Color backgroundColor = Color(0xFFEEEEEE);
   static const Color whiteColor = Colors.white;
   static const Color greyColor = Colors.grey;
-  static const Color greyColor100 =   Color(0xFFF5F5F5);
+  static const Color greyColor100 = Color(0xFFF5F5F5);
   static const Color lightGreyColor = Color(0xFFD3D3D3);
   static const Color lightGreenColor = Color(0xFFd5e8d4);
 }
 
-
 class AppStrings {
   static const String completedTitle = 'Completed';
-  static const String orderReceived = 'Order already received\nby the Branch \n\nGo Print the DR';
+  static const String orderReceived =
+      'Order already received\nby the Branch \n\nGo Print the DR';
   static const String seeAllText = 'See all';
   static const String backButtonText = 'Back';
   static const String deliveryStatus = 'Delivery Status';
@@ -44,10 +44,9 @@ class AppStrings {
   static const String wordButtonText = 'WORD';
   static const String printButtonText = 'PRINT';
   static const String barcodetext = 'Scan Barcode';
-  static const String scaninstruction =   'Place the barcode inside the frame';
-  static const String btnone_DRList =   'Select DR/s to move';
-  static const String btntwo_DRList =   'Move as Validated';
-
+  static const String scaninstruction = 'Place the barcode inside the frame';
+  static const String btnone_DRList = 'Select DR/s to move';
+  static const String btntwo_DRList = 'Move all as Validated';
 
   static const String statisticTextOne = 'Packed';
   static const String statisticTextTwo = 'Validated';
@@ -69,13 +68,10 @@ class AppStrings {
 
   static const String btnImageTextone = 'START DELIVERY';
   static const String btnImageTexttwo = 'Create DR and deliver them.';
-
-
 }
 
-
 class AppData {
-  static const List<Map<String, String>>  dataListDR = [
+  static const List<Map<String, String>> dataListDR = [
     {
       'drID': 'QEJ7J8F0KH3',
       'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
@@ -146,11 +142,9 @@ class AppData {
       'date': '09-12-2021',
       'time': '0999'
     },
-
-
   ];
 
-  static const List<Map<String, String>>  dataListDRtwo = [
+  static const List<Map<String, String>> dataListDRtwo = [
     {
       'drID': 'QEJ7J8F0KH3',
       'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
@@ -172,51 +166,9 @@ class AppData {
       'date': '09-12-2021',
       'time': '0999'
     },
-
-
-  ];
-  
-  static const List<Map<String, String>>  dataListDRthree = [
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '7:09 PM'
-    },
-    {
-      'drID': 'QEJ7J8F0KH4',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-
-
   ];
 
-  static const List<Map<String, String>>  dataListDRfour = [
+  static const List<Map<String, String>> dataListDRthree = [
     {
       'drID': 'QEJ7J8F0KH3',
       'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
@@ -252,11 +204,9 @@ class AppData {
       'date': '09-12-2021',
       'time': '0999'
     },
-
-
   ];
 
-  static const List<Map<String, String>>  dataListDRfive = [
+  static const List<Map<String, String>> dataListDRfour = [
     {
       'drID': 'QEJ7J8F0KH3',
       'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
@@ -292,109 +242,148 @@ class AppData {
       'date': '09-12-2021',
       'time': '0999'
     },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '7:09 PM'
-    },
-    {
-      'drID': 'QEJ7J8F0KH4',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },{
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '7:09 PM'
-    },
-    {
-      'drID': 'QEJ7J8F0KH4',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-    {
-      'drID': 'QEJ7J8F0KH3',
-      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
-      'number': '12123123090909',
-      'date': '09-12-2021',
-      'time': '0999'
-    },
-
-
   ];
 
-  static const List<Map<String, String>> invoiceBarcode =[
+  static const List<Map<String, String>> dataListDRfive = [
     {
-      'vendor_name':'Likha ni Inay, Inc.',
-      'branch':'San Pablo Branch',
-      'inv_no':'XXXXX',
-      'department_name':'LIKHA NI INAY, INC. MAIN',
-      'ASN':'XXXXXXXXXXXXX',
-      'RDD':'Jun 28, 2024 09:00am',
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '7:09 PM'
+    },
+    {
+      'drID': 'QEJ7J8F0KH4',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '7:09 PM'
+    },
+    {
+      'drID': 'QEJ7J8F0KH4',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '7:09 PM'
+    },
+    {
+      'drID': 'QEJ7J8F0KH4',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+    {
+      'drID': 'QEJ7J8F0KH3',
+      'address': '20 ML Quezon St. City Subdivision, San Pablo City, Laguna ',
+      'number': '12123123090909',
+      'date': '09-12-2021',
+      'time': '0999'
+    },
+  ];
+
+  static const List<Map<String, String>> invoiceBarcode = [
+    {
+      'vendor_name': 'Likha ni Inay, Inc.',
+      'branch': 'San Pablo Branch',
+      'inv_no': 'XXXXX',
+      'department_name': 'LIKHA NI INAY, INC. MAIN',
+      'ASN': 'XXXXXXXXXXXXX',
+      'RDD': 'Jun 28, 2024 09:00am',
     }
   ];
 
-  static const List<Map<String, String>> sender =[
+  static const List<Map<String, String>> sender = [
     {
       'branch': 'Likha ni Inay Main Branch',
-      'branch_address':'20 ML Quezon St.  City Subdivision, San Pablo City, Laguna ',
-      'contact_no':'0900909099090'
+      'branch_address':
+          '20 ML Quezon St.  City Subdivision, San Pablo City, Laguna ',
+      'contact_no': '0900909099090'
     }
   ];
 
-  static const List<Map<String, String>> recipient =[
+  static const List<Map<String, String>> recipient = [
     {
       'branch': 'Likha ni Inay Main Branch',
-      'branch_address':'20 ML Quezon St.  City Subdivision, San Pablo City, Laguna ',
-      'contact_no':'0900909099090',
+      'branch_address':
+          '20 ML Quezon St.  City Subdivision, San Pablo City, Laguna ',
+      'contact_no': '0900909099090',
       'no_units': '4',
       'no_months': '7'
     }
   ];
 
-   static const List<Map<String, String>> receiptTitle = [
+  static const List<Map<String, String>> receiptTitle = [
     {'title': 'Customer Name:'},
     {'title': 'Address:'},
     {'title': 'Contact Person'},
@@ -403,76 +392,105 @@ class AppData {
     {'title': 'Delivery Number:'},
   ];
 
- 
-  static const List<String> customerInfo =[
-
-      'CARD Bank, Inc. Mogpog',
-      'persons address',
-      'person name',
-      '09123912309',
-      '08202001',
-      '09290'
-
+  static const List<Map<String, String>> customerInfo = [
+    {
+      'customer_name': 'Customer Name:',
+      'address': 'Address:',
+      'contact_person': 'Contact Person',
+      'contact_number': 'Contact Number',
+      'delivery_date': 'Delivery Date:',
+      'delivery_number': 'Delivery Number:',
+    },
+    // Add more customers here as needed
   ];
 
+  // static const List<String> customerInfo = [
+  //   'CARD Bank, Inc. Mogpog',
+  //   'persons address',
+  //   'person name',
+  //   '09123912309',
+  //   '08202001',
+  //   '09290'
+  // ];
 
   static const List<List<String>> orderInfo = [
-    ['One', 'two', 'three',],
-    ['two', 'two', 'three',],
-    ['3', 'two', 'three',],
-    ['O4', 'two', 'three',],
-    ['O5', 'two', 'three',],
-    ['O6', 'two', 'three',],
-    ['O7', 'two', 'three',],
-    ['O8', 'two', 'three',],
-    
+    [
+      'One',
+      'two',
+      'three',
+    ],
+    [
+      'two',
+      'two',
+      'three',
+    ],
+    [
+      '3',
+      'two',
+      'three',
+    ],
+    [
+      'O4',
+      'two',
+      'three',
+    ],
+    [
+      'O5',
+      'two',
+      'three',
+    ],
+    [
+      'O6',
+      'two',
+      'three',
+    ],
+    [
+      'O7',
+      'two',
+      'three',
+    ],
+    [
+      'O8',
+      'two',
+      'three',
+      'five',
+      'sic',
+    ],
   ];
 
-  static const List<Map<String, String>> del_detailssend =[
+  static const List<Map<String, String>> del_details = [
     {
-      'branch': 'Likha ni Inay Main Branch two',
-      'branch_address':'20 ML Quezon St.  City Subdivision, San Pablo City, Laguna two',
-      'contact_no':'0900909099090 two'
+      "branch_sender": 'Likha ni inay main',
+      'branch_address':
+          '20 ML Quezon St.  City Subdivision, San Pablo City, Laguna ',
+      'contact_sender': '09xxxxxxxxx',
+      'city_branch': 'San Pablo City',
+      'adress_recipient':
+          '20 ML Quezon St.  City Subdivision, San Pablo City, Laguna ',
+      'contact_recipient': '09xxxxxxxxx',
+      'units': '5',
+      'months': '6'
     }
   ];
 
-  static const List<Map<String, String>> del_detailsres =[
-    {
-      'branch': 'Likha ni Inay Main Branch two',
-      'branch_address':'20 ML Quezon St.  City Subdivision, San Pablo City, Laguna two',
-      'contact_no':'0900909099090 two',
-      'no_units': '4two',
-      'no_months': '7two'
-    }
-  ];
-  
   static const List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
-
 }
 
-
 class AppTextStyles {
-  static  const TextStyle allDRstyletitle = TextStyle(
-    fontSize: 15,
-    color: Colors.black87
+  static const TextStyle allDRstyletitle =
+      TextStyle(fontSize: 15, color: Colors.black87);
 
-  );
+  static const TextStyle allDRstylevalue = TextStyle(
+      fontFamily: 'Arial',
+      fontSize: 25,
+      color: AppColors.primaryColor,
+      fontWeight: FontWeight.bold);
 
-  static const TextStyle allDRstylevalue= TextStyle(
-    fontFamily: 'Arial',
-    fontSize: 25,
-    color: AppColors.primaryColor,
-    fontWeight: FontWeight.bold
-
-  );
-
-  static const TextStyle packageTitle= TextStyle(
-    fontFamily: 'Arial',
-    fontSize: 18,
-    color: AppColors.primaryColor,
-    fontWeight: FontWeight.bold
-
-  );
+  static const TextStyle packageTitle = TextStyle(
+      fontFamily: 'Arial',
+      fontSize: 18,
+      color: AppColors.primaryColor,
+      fontWeight: FontWeight.bold);
 
   static const TextStyle commonTextStyleOne = TextStyle(
     fontSize: 14,
@@ -511,7 +529,7 @@ class AppTextStyles {
     color: AppColors.primaryColor,
   );
 
-   static const TextStyle deliveryStatusStyle = TextStyle(
+  static const TextStyle deliveryStatusStyle = TextStyle(
     fontWeight: FontWeight.bold,
     fontFamily: 'Arial',
     fontSize: 12,
@@ -551,21 +569,13 @@ class AppTextStyles {
     fontFamily: 'Arial',
     fontWeight: FontWeight.bold,
   );
-  static const TextStyle userName = TextStyle(
-    fontSize: 12,
-    color: Colors.grey
-  );
+  static const TextStyle userName = TextStyle(fontSize: 12, color: Colors.grey);
 
-  static const TextStyle fullName = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeight.bold
-  );
+  static const TextStyle fullName =
+      TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
 
-  static const TextStyle scanTitle = TextStyle(
-    fontSize: 25,
-    fontWeight: FontWeight.bold,
-    fontFamily: 'Arial'
-  );
+  static const TextStyle scanTitle =
+      TextStyle(fontSize: 25, fontWeight: FontWeight.bold, fontFamily: 'Arial');
 
   static const TextStyle TextStyleOne = TextStyle(
     color: AppColors.textColor,
@@ -573,21 +583,19 @@ class AppTextStyles {
     fontFamily: 'Arial',
   );
   static const TextStyle TextStyleTwo = TextStyle(
-    color: AppColors.textColor,
-    fontSize: 11.0,
-    fontFamily: 'Arial',
-    fontWeight: FontWeight.bold
-  );
+      color: AppColors.textColor,
+      fontSize: 11.0,
+      fontFamily: 'Arial',
+      fontWeight: FontWeight.bold);
   static const TextStyle TextStyleThree = TextStyle(
-    color: AppColors.textColor,
-    fontSize: 11.0,
-    fontFamily: 'Arial',
-    fontStyle: FontStyle.italic
-  );
-   static const TextStyle btnStartDelivery = TextStyle(
-  fontSize: 15.0,
-  fontWeight: FontWeight.bold,
-  color: Colors.white,
+      color: AppColors.textColor,
+      fontSize: 11.0,
+      fontFamily: 'Arial',
+      fontStyle: FontStyle.italic);
+  static const TextStyle btnStartDelivery = TextStyle(
+    fontSize: 15.0,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
   );
 
   static const TextStyle btnStartDeliveryText = TextStyle(
@@ -596,13 +604,9 @@ class AppTextStyles {
   );
 
   static const InputDecoration textFieldDecor = InputDecoration(
-      border: InputBorder.none, 
-      contentPadding: EdgeInsets.symmetric(vertical: 3.5), 
-      isDense: true 
-  );
-  
-
-
+      border: InputBorder.none,
+      contentPadding: EdgeInsets.symmetric(vertical: 3.5),
+      isDense: true);
 }
 
 class CustomDecorations {
@@ -620,5 +624,3 @@ class CustomDecorations {
     borderRadius: BorderRadius.all(Radius.circular(20.0)),
   );
 }
-
-

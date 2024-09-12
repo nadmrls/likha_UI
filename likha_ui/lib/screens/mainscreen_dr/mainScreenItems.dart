@@ -11,37 +11,38 @@ class Mainscreenitems extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal:20 ),
-          child: Stack(
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TopbarSearch(),
-                  
-                  Expanded(
+          child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Stack(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const TopbarSearch(),
+                Expanded(
                     child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          DRList(screenHeight: screenHeight, screenWidth: screenWidth, drlist: AppData.dataListDR),
-                          // not sure if will proceed to dr status after the dr list
-                          ProductList(screenHeight: screenHeight, screenWidth: screenWidth),
-                          SizedBox(height: 15,)
-
-                        ],
+                  child: Column(
+                    children: [
+                      DRList(
+                        screenHeight: screenHeight,
+                        screenWidth: screenWidth,
                       ),
-                    ))
-                  
-          
-                ],
-              )
-              
-            ],
-          ),
-        )),
+                      // not sure if will proceed to dr status after the dr list
+                      ProductList(
+                          screenHeight: screenHeight, screenWidth: screenWidth),
+                      const SizedBox(
+                        height: 15,
+                      )
+                    ],
+                  ),
+                ))
+              ],
+            )
+          ],
+        ),
+      )),
     );
   }
 }

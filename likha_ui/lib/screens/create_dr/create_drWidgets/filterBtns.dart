@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:likhaui/screens/create_dr/deliveryStatus.dart';
+import 'package:likhaui/utils/shared/provider/barcode_provider.dart';
+import 'package:likhaui/utils/shared/provider/dr_listfilterProvider.dart';
 import 'package:likhaui/utils/values/constants.dart';
+import 'package:provider/provider.dart';
 
 class ButtonAndContainers extends StatefulWidget {
   final bool showIcons;
   final bool showIconsTwo;
 
-
-  const ButtonAndContainers({super.key, required this.showIcons, required this.showIconsTwo}); // Add this line
+  const ButtonAndContainers({
+    super.key,
+    required this.showIcons,
+    required this.showIconsTwo,
+  });
 
   @override
   _ButtonAndContainersState createState() => _ButtonAndContainersState();
@@ -15,14 +21,15 @@ class ButtonAndContainers extends StatefulWidget {
 
 class _ButtonAndContainersState extends State<ButtonAndContainers> {
   int _selectedButtonIndex = 0;
-  late List<Map<String, dynamic>> selectedTable = AppData.dataListDR;
   List<bool> _isIconToggledList = [];
 
   @override
   void initState() {
     super.initState();
-    // Initialize the icon toggled list with false values
-    _isIconToggledList = List<bool>.filled(selectedTable.length, false);
+    final selectedTableProvider =
+        Provider.of<DrListfilterprovider>(context, listen: false);
+    _isIconToggledList =
+        List<bool>.filled(selectedTableProvider.selectedTable.length, false);
   }
 
   void _toggleIcon(int index) {
@@ -31,17 +38,10 @@ class _ButtonAndContainersState extends State<ButtonAndContainers> {
     });
   }
 
-  // void _editItem(int index) {
-  //   // Implement your edit logic here
-  //   print("Edit icon pressed for item at index: $index");
-  // }
-  //
-  // void _deleteItem(int index) {
-  //   // Implement your delete logic here
-  //   print("Delete icon pressed for item at index: $index");
-  // }
-
   Widget _buildCustomButton(String text, int index) {
+    final textProvider = Provider.of<DrListfilterprovider>(context);
+    final selectedTableProvider = Provider.of<DrListfilterprovider>(context);
+
     return Flexible(
       fit: FlexFit.tight,
       child: AnimatedContainer(
@@ -57,32 +57,34 @@ class _ButtonAndContainersState extends State<ButtonAndContainers> {
           onPressed: () {
             setState(() {
               _selectedButtonIndex = index;
-              // Update selectedTable based on the button clicked
+              textProvider.toggleVisibilityTrue();
+              selectedTableProvider.updateSelectedTable(index);
+              _isIconToggledList = List<bool>.filled(
+                  selectedTableProvider.selectedTable.length, false);
+
+              // Update the text based on the button clicked
               switch (index) {
                 case 0:
-                  selectedTable = AppData.dataListDR;
+                  textProvider.changeText('Move all as Validated');
                   break;
                 case 1:
-                  selectedTable = AppData.dataListDRtwo;
+                  textProvider.changeText('Move all In Logistics');
                   break;
                 case 2:
-                  selectedTable = AppData.dataListDRthree;
+                  textProvider.changeText('Move all In Transit');
                   break;
                 case 3:
-                  selectedTable = AppData.dataListDRfour;
+                  textProvider.changeText('Move all to Delivered');
                   break;
                 case 4:
-                  selectedTable = AppData.dataListDRfive;
+                  textProvider.toggleVisibilityFalse();
                   break;
-                default:
-                  selectedTable = AppData.dataListDR;
               }
-              // Update the icon toggled list to match the new selected table
-              _isIconToggledList = List<bool>.filled(selectedTable.length, false);
             });
           },
           style: TextButton.styleFrom(
-            padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
             backgroundColor: Colors.transparent,
           ),
           child: FittedBox(
@@ -100,6 +102,8 @@ class _ButtonAndContainersState extends State<ButtonAndContainers> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    final barcode = Provider.of<BarcodeProvider>(context);
+    final selectedTableProvider = Provider.of<DrListfilterprovider>(context);
 
     return Column(
       children: [
@@ -120,12 +124,24 @@ class _ButtonAndContainersState extends State<ButtonAndContainers> {
           ),
         ),
         Column(
-          children: List.generate(selectedTable.length, (index) {
+          children: List.generate(selectedTableProvider.selectedTable.length,
+              (index) {
             return GestureDetector(
               onTap: () {
+                setState(() {
+                  barcode.changeBarcode(
+                      selectedTableProvider.selectedTable[index]['drID']!);
+                });
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => DeliverystatusCreateDR(dr_id: selectedTable[index]['drID']!, contact: selectedTable[index]['number']!,)),
+                  MaterialPageRoute(
+                    builder: (context) => DeliverystatusCreateDR(
+                      dr_id: selectedTableProvider.selectedTable[index]
+                          ['drID']!,
+                      contact: selectedTableProvider.selectedTable[index]
+                          ['number']!,
+                    ),
+                  ),
                 );
               },
               child: Container(
@@ -143,25 +159,27 @@ class _ButtonAndContainersState extends State<ButtonAndContainers> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            selectedTable[index]['drID']!,
+                            selectedTableProvider.selectedTable[index]['drID']!,
                             style: AppTextStyles.commonTextStyleOne,
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            selectedTable[index]['address']!,
+                            selectedTableProvider.selectedTable[index]
+                                ['address']!,
                             style: AppTextStyles.commonTextStyleTwo,
                           ),
                           Text(
-                            selectedTable[index]['number']!,
+                            selectedTableProvider.selectedTable[index]
+                                ['number']!,
                             style: AppTextStyles.commonTextStyleTwo,
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            selectedTable[index]['date']!,
+                            selectedTableProvider.selectedTable[index]['date']!,
                             style: AppTextStyles.commonTextStyleThree,
                           ),
                           Text(
-                            selectedTable[index]['time']!,
+                            selectedTableProvider.selectedTable[index]['time']!,
                             style: AppTextStyles.commonTextStyleThree,
                           ),
                         ],
@@ -171,32 +189,29 @@ class _ButtonAndContainersState extends State<ButtonAndContainers> {
                       Row(
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.edit, color: Colors.grey,),
-                              onPressed: (){
-                                debugPrint('edit');
-                              }
+                            icon: const Icon(Icons.edit, color: Colors.grey),
+                            onPressed: () => debugPrint('edit'),
                           ),
                           const SizedBox(width: 5),
                           IconButton(
-                            icon: const Icon(Icons.delete_forever, color: Colors.red),
-                            onPressed: (){
-                              debugPrint('delete');
-                            }
+                            icon: const Icon(Icons.delete_forever,
+                                color: Colors.red),
+                            onPressed: () => debugPrint('delete'),
                           ),
                         ],
                       ),
                     if (widget.showIconsTwo)
-                    IconButton(
-                      icon: Icon(
-                        _isIconToggledList[index]
-                            ? Icons.check_circle
-                            : Icons.circle,
-                        color: _isIconToggledList[index]
-                            ? AppColors.primaryColor
-                            : Colors.grey[350],
+                      IconButton(
+                        icon: Icon(
+                          _isIconToggledList[index]
+                              ? Icons.check_circle
+                              : Icons.circle,
+                          color: _isIconToggledList[index]
+                              ? AppColors.primaryColor
+                              : Colors.grey[350],
+                        ),
+                        onPressed: () => _toggleIcon(index),
                       ),
-                      onPressed: () => _toggleIcon(index),
-                    ),
                   ],
                 ),
               ),
@@ -207,69 +222,3 @@ class _ButtonAndContainersState extends State<ButtonAndContainers> {
     );
   }
 }
-
-class MoveSelectedDR extends StatelessWidget {
-  const MoveSelectedDR({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      color: AppColors.greyColor,
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/package.png',
-              width: 100,
-              height: 100,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 10,),
-                Text('Selected:',
-                style: TextStyle(
-                  color: Colors.grey[500]
-                ),),
-                const Text('4 Dr Selected',
-                style: TextStyle(
-                  color: AppColors.primaryColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold
-                ),),
-              ],
-            ),
-            const SizedBox(width: 20,),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: (){
-
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primaryColor,
-                  foregroundColor: AppColors.whiteColor,
-                  textStyle: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                ),
-                child: const Text(
-                  'Move',
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-
-
-          ],
-        ),
-      ),
-    );
-  }
-}
-

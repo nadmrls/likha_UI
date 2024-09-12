@@ -10,7 +10,7 @@ class Seealldr extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Stack(
           children: [
@@ -18,14 +18,23 @@ class Seealldr extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 10),
-                  child: TopNavbar(centerText: 'DR List', rightButton: false, onButtonPressed: () {  },)),
-                SizedBox(height: 15,),
-                DRList(screenHeight: screenHeight, screenWidth: screenWidth, drlist: AppData.dataListDR,)
+                    margin: EdgeInsets.only(top: 10),
+                    child: TopNavbar(
+                      centerText: 'DR List',
+                      rightButton: false,
+                      onButtonPressed: () {},
+                    )),
+                SizedBox(
+                  height: 15,
+                ),
+                DRList(
+                  screenHeight: screenHeight,
+                  screenWidth: screenWidth,
+                )
               ],
-        
             )
-          ],),
+          ],
+        ),
       ),
     );
   }

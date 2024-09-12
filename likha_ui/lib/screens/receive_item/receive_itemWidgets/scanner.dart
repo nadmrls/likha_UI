@@ -3,25 +3,25 @@ import 'package:likhaui/screens/receive_item/deliveryDetails.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 class BarcodeScannerContainer extends StatefulWidget {
-
-
   const BarcodeScannerContainer({
     super.key,
   });
-  
+
   @override
-  _BarcodeScannerContainerState createState() => _BarcodeScannerContainerState();
+  _BarcodeScannerContainerState createState() =>
+      _BarcodeScannerContainerState();
 }
 
 class _BarcodeScannerContainerState extends State<BarcodeScannerContainer> {
-  
   String _barcode = '';
-  
 
   void scanBarcodeResult(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Deliverydetails(barcode: 'Barcode', contact: 'test',)),
+      MaterialPageRoute(
+          builder: (context) => Deliverydetails(
+                contact: 'test',
+              )),
     );
   }
 
@@ -56,7 +56,6 @@ class _BarcodeScannerContainerState extends State<BarcodeScannerContainer> {
               }
             },
           ),
-
         ],
       ),
     );

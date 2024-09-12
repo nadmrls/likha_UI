@@ -18,7 +18,7 @@ void showMyDialog(BuildContext context, String message) {
                     child: Opacity(
                       opacity: 0.05,
                       child: Image.asset(
-                        'assets/images/damo-transparent1.png', // Replace with your image path
+                        'assets/images/damo-transparent1.png',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -48,7 +48,9 @@ void showMyDialog(BuildContext context, String message) {
                   left: 0,
                   child: Transform.scale(
                     scale: 0.955, // Adjust this value to zoom in or out
-                    child: Image.asset('assets/images/shine bg.png',),
+                    child: Image.asset(
+                      'assets/images/shine bg.png',
+                    ),
                   ),
                 ),
                 Positioned(
@@ -75,21 +77,25 @@ void showMyDialog(BuildContext context, String message) {
                               color: Colors.green.withOpacity(1), // Glow color
                               spreadRadius: 5,
                               blurRadius: 20,
-                              offset: const Offset(0, 0), // Changes position of shadow
+                              offset: const Offset(
+                                  0, 0), // Changes position of shadow
                             ),
                           ],
                         ),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green[300], // Button background color
+                            backgroundColor:
+                                Colors.green[300], // Button background color
                             foregroundColor: Colors.white, // Button text color
                             textStyle: const TextStyle(
                               fontSize: 20, // Button text font size
                               fontWeight: FontWeight.bold,
                             ),
-                            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10), // Button padding
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 10), // Button padding
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15), // Button border radius
+                              borderRadius: BorderRadius.circular(
+                                  15), // Button border radius
                             ),
                           ),
                           child: const Text(

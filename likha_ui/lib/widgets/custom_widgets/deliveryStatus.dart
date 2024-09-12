@@ -8,14 +8,18 @@ class DeliveryStatusWidget extends StatelessWidget {
   final double screenWidth;
   final String contact;
 
-  const DeliveryStatusWidget({super.key, 
-  required this.screenWidth, required this.contact, });
+  const DeliveryStatusWidget({
+    super.key,
+    required this.screenWidth,
+    required this.contact,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: screenWidth * 0.9,
-      padding: const EdgeInsets.only(top: 15.0, left: 15, right: 10, bottom: 15.0),
+      padding:
+          const EdgeInsets.only(top: 15.0, left: 15, right: 10, bottom: 15.0),
       decoration: BoxDecoration(
         color: AppColors.lightGreenColor,
         borderRadius: BorderRadius.circular(15.0),
@@ -38,10 +42,13 @@ class DeliveryStatusWidget extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Clipboard.setData( ClipboardData(text:contact));
+                      Clipboard.setData(ClipboardData(text: contact));
                       ScaffoldMessenger.of(context).showSnackBar(
-                         const SnackBar(content: Text("Contact Information Copied to Clipboard",
-                        textAlign: TextAlign.center,)),
+                        const SnackBar(
+                            content: Text(
+                          "Contact Information Copied to Clipboard",
+                          textAlign: TextAlign.center,
+                        )),
                       );
                     },
                     style: TextButton.styleFrom(
@@ -54,7 +61,7 @@ class DeliveryStatusWidget extends StatelessWidget {
               ),
             ],
           ),
-           SizedBox(
+          SizedBox(
             width: 300,
             height: 250,
             child: OrderTracker(),

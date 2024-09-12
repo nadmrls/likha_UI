@@ -1,29 +1,37 @@
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
+import 'package:likhaui/utils/shared/models/delivery_receiptModel.dart';
+import 'package:provider/provider.dart';
+import 'package:likhaui/utils/shared/provider/delivery_receiptProvider.dart';
 import 'package:likhaui/utils/values/constants.dart';
 
-class DeliveryreceiptEsign extends StatefulWidget {
-  final List<List<String>> orderInfo;
-  final List<String>  customerInfo;
+class DeliveryreceiptEsign extends StatelessWidget {
   final Uint8List eSignature;
   final double border;
 
-  const DeliveryreceiptEsign({super.key, required this.customerInfo, required this.eSignature, required this.orderInfo, required this.border});
+  const DeliveryreceiptEsign(
+      {super.key, required this.eSignature, required this.border});
 
-  @override
-  State<DeliveryreceiptEsign> createState() => _DeliveryreceiptEsignState();
-}
-
-class _DeliveryreceiptEsignState extends State<DeliveryreceiptEsign> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+
+    final customerList =
+        Provider.of<DeliveryReceiptProviderCustomer>(context).customerInfo;
+
+    if (customerList.isEmpty) {
+      return const Center(
+        child: Text('No customer information available'),
+      );
+    }
+
+    final customer = customerList[0];
+
     return Container(
       width: screenWidth * 0.9,
       padding: const EdgeInsets.only(top: 10.0, bottom: 15.0),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(widget.border),
+        borderRadius: BorderRadius.circular(border),
         color: AppColors.whiteColor,
         border: Border.all(
           color: AppColors.greyColor,
@@ -45,57 +53,68 @@ class _DeliveryreceiptEsignState extends State<DeliveryreceiptEsign> {
             color: AppColors.greyColor,
             thickness: 1,
           ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: List.generate(AppData.receiptTitle.length, (index) {
-              return Column(
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Text(
-                          AppData.receiptTitle[index]['title']!,
-                          style: AppTextStyles.commonTextStyle,
-                        ),
-                      ),
-                      const Spacer(),
-                      Text(
-                        widget.customerInfo[index],
-                        style: AppTextStyles.commonTextStyle,
-                      ),
-                      SizedBox(width: screenWidth * 0.1),
-                    ],
-                  ),
-                  const Divider(
-                    color: AppColors.greyColor,
-                    thickness: 1.0,
-                    indent: 10.0,
-                    endIndent: 10.0,
-                  ),
-                ],
-              );
-            }),
-          ),
+          receiptCustomerData(screenWidth, 0, customer.customer_name),
+          receiptCustomerData(screenWidth, 1, customer.address),
+          receiptCustomerData(screenWidth, 2, customer.contact_person),
+          receiptCustomerData(screenWidth, 3, customer.contact_no),
+          receiptCustomerData(screenWidth, 4, customer.delivery_date),
+          receiptCustomerData(screenWidth, 5, customer.delivery_number),
           const SizedBox(height: 15),
-          SummarySection(orderInfo: widget.orderInfo,),
+          SummarySection(),
           const SizedBox(height: 10),
-          MonthsUnitsSection(orderInfo: widget.orderInfo,),
-          GreyBox(eSignature: widget.eSignature)
+          MonthsUnitsSection(),
+          GreyBox(eSignature: eSignature),
         ],
       ),
+    );
+  }
+
+  Column receiptCustomerData(double screenWidth, int index, String value) {
+    if (index >= AppData.receiptTitle.length) {
+      return Column(
+        children: const [
+          Text('Invalid data'),
+        ],
+      );
+    }
+    return Column(
+      children: [
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Text(
+                AppData.receiptTitle[index]['title']!,
+                style: AppTextStyles.commonTextStyle,
+              ),
+            ),
+            const Spacer(),
+            Text(
+              value,
+              style: AppTextStyles.commonTextStyle,
+            ),
+            SizedBox(width: screenWidth * 0.1),
+          ],
+        ),
+        const Divider(
+          color: AppColors.greyColor,
+          thickness: 1.0,
+          indent: 10.0,
+          endIndent: 10.0,
+        ),
+      ],
     );
   }
 }
 
 class SummarySection extends StatelessWidget {
-  final List<List<String>> orderInfo;
-
-  const SummarySection({super.key, required this.orderInfo});
+  const SummarySection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Access the provider
+    final orderinfo =
+        Provider.of<DeliveryReceiptProviderOrder>(context).orderInfo;
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,84 +123,90 @@ class SummarySection extends StatelessWidget {
         const SizedBox(width: 1),
         Column(
           children: [
-             Text(
+            Text(
               AppStrings.quantityTitle,
               style: AppTextStyles.titleTextStyle,
             ),
             const SizedBox(height: 5),
             Column(
-              children: orderInfo[0]
-                  .map((data) => Text(data, style: AppTextStyles.commonTextStyle))
+              children: orderinfo[0]
+                  .map((data) =>
+                      Text(data, style: AppTextStyles.commonTextStyle))
                   .toList(),
             ),
           ],
         ),
         Column(
           children: [
-            const Text(
+            Text(
               AppStrings.unitsTitle,
               style: AppTextStyles.titleTextStyle,
             ),
             const SizedBox(height: 5),
             Column(
-              children: orderInfo[1]
-                  .map((data) => Text(data, style: AppTextStyles.commonTextStyle))
+              children: orderinfo[1]
+                  .map((data) =>
+                      Text(data, style: AppTextStyles.commonTextStyle))
                   .toList(),
             ),
           ],
         ),
         Column(
           children: [
-            const Text(
+            Text(
               AppStrings.qtyTitle,
               style: AppTextStyles.titleTextStyle,
             ),
             const SizedBox(height: 5),
             Column(
-              children: orderInfo[2]
-                  .map((data) => Text(data, style: AppTextStyles.commonTextStyle))
+              children: orderinfo[2]
+                  .map((data) =>
+                      Text(data, style: AppTextStyles.commonTextStyle))
                   .toList(),
             ),
           ],
         ),
         Column(
           children: [
-            const Text(
+            Text(
               AppStrings.itemTitle,
               style: AppTextStyles.titleTextStyle,
             ),
             const SizedBox(height: 5),
             Column(
-              children: orderInfo[3]
-                  .map((data) => Text(data, style: AppTextStyles.commonTextStyle))
+              children: orderinfo[3]
+                  .map((data) =>
+                      Text(data, style: AppTextStyles.commonTextStyle))
                   .toList(),
             ),
           ],
         ),
         Column(
           children: [
-            const Text(
+            Text(
               AppStrings.priceTitle,
               style: AppTextStyles.titleTextStyle,
             ),
             const SizedBox(height: 5),
             Column(
-              children: orderInfo[4]
-                  .map((data) => Text(data, style: AppTextStyles.commonTextStyle))
+              children: orderinfo[4]
+                  .map((data) =>
+                      Text(data, style: AppTextStyles.commonTextStyle))
                   .toList(),
             ),
           ],
         ),
         Column(
           children: [
-            const Text(
+            Text(
               AppStrings.totalTitle,
               style: AppTextStyles.titleTextStyle,
             ),
             const SizedBox(height: 5),
             Column(
-              children: orderInfo[5]
-                  .map((data) => Text(data, style: AppTextStyles.commonTextStyle))
+              children: orderinfo[5]
+                  .map((data) =>
+                      Text(data, style: AppTextStyles.commonTextStyle))
                   .toList(),
             ),
           ],
@@ -193,12 +218,13 @@ class SummarySection extends StatelessWidget {
 }
 
 class MonthsUnitsSection extends StatelessWidget {
-  final List<List<String>> orderInfo;
-  const MonthsUnitsSection({super.key, required this.orderInfo});
+  const MonthsUnitsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    final orderInfo =
+        Provider.of<DeliveryReceiptProviderOrder>(context).orderInfo;
 
     return Padding(
       padding: EdgeInsets.only(left: screenWidth * 0.045),
@@ -216,7 +242,8 @@ class MonthsUnitsSection extends StatelessWidget {
                   ),
                   Column(
                     children: orderInfo[6]
-                        .map((data) => Text(data, style: AppTextStyles.commonTextStyle))
+                        .map((data) =>
+                            Text(data, style: AppTextStyles.commonTextStyle))
                         .toList(),
                   ),
                 ],
@@ -230,7 +257,8 @@ class MonthsUnitsSection extends StatelessWidget {
                   ),
                   Column(
                     children: orderInfo[7]
-                        .map((data) => Text(data, style: AppTextStyles.commonTextStyle))
+                        .map((data) =>
+                            Text(data, style: AppTextStyles.commonTextStyle))
                         .toList(),
                   ),
                 ],

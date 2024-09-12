@@ -15,16 +15,20 @@ class Printdr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Stack(
           children: [
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TopNavbar(centerText: 'DR', rightButton: false, onButtonPressed: () {  },),
+                TopNavbar(
+                  centerText: 'DR',
+                  rightButton: false,
+                  onButtonPressed: () {},
+                ),
                 Expanded(
-                  child: SingleChildScrollView(
+                    child: SingleChildScrollView(
                   child: Column(
                     children: [
                       Container(
@@ -32,30 +36,32 @@ class Printdr extends StatelessWidget {
                         child: Column(
                           children: [
                             LogoSection(),
-                            DeliveryreceiptEsign(customerInfo: AppData.customerInfo, orderInfo: AppData.orderInfo, eSignature: eSignature, border: 20.0,),
-                            SizedBox(height: 15,),
+                            DeliveryreceiptEsign(
+                              eSignature: eSignature,
+                              border: 20.0,
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
                             Container(
-                              margin: EdgeInsets.only(left: 15, right: 15),
-                              child: Rowbuttons(
-                                onPngButtonPressed: () { 
-        
-                               }, onWordButtonPressed: () { 
-        
-                                }, onPrintButtonPressed: () { 
-        
-                                 },)),
-        
-                            SizedBox(height: 40,),
-                              Container(
-                                padding: EdgeInsets.all(30),
-                                width: double.infinity,
-                                child: BottomButton(buttontxt: 'Done', onButtonPressed: (){
-                                  showMyDialog(context, 'Delivery Done!');
-                                
-                                }),
-                              )
-        
-                            
+                                margin: EdgeInsets.only(left: 15, right: 15),
+                                child: Rowbuttons(
+                                  onPngButtonPressed: () {},
+                                  onWordButtonPressed: () {},
+                                  onPrintButtonPressed: () {},
+                                )),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(30),
+                              width: double.infinity,
+                              child: BottomButton(
+                                  buttontxt: 'Done',
+                                  onButtonPressed: () {
+                                    showMyDialog(context, 'Delivery Done!');
+                                  }),
+                            )
                           ],
                         ),
                       )

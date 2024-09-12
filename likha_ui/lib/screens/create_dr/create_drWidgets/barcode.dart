@@ -1,12 +1,15 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:likhaui/utils/shared/provider/barcode_provider.dart';
+import 'package:provider/provider.dart';
 
 class BarcodeWidgetContainer extends StatelessWidget {
-  final String barcode;
-  const BarcodeWidgetContainer({super.key, required this.barcode});
+  const BarcodeWidgetContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final barcode = Provider.of<BarcodeProvider>(context).barcodeValue;
+
     return SizedBox(
       width: 450,
       child: Center(

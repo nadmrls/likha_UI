@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:likhaui/utils/values/constants.dart';
 
 class ProductList extends StatelessWidget {
-
   final double screenHeight;
   final double screenWidth;
 
@@ -18,7 +17,6 @@ class ProductList extends StatelessWidget {
     'assets/images/jam.png',
     'assets/images/jam.png',
     'assets/images/jam.png',
-
   ];
 
   @override
@@ -40,10 +38,10 @@ class ProductList extends StatelessWidget {
                 onPressed: () {},
                 child: const Row(
                   children: [
-                    Text('See All',
-                    style: TextStyle(
-                      color: AppColors.primaryColor
-                    ),),
+                    Text(
+                      'See All',
+                      style: TextStyle(color: AppColors.primaryColor),
+                    ),
                     SizedBox(width: 2),
                     Icon(
                       Icons.arrow_forward_ios_rounded,
@@ -55,7 +53,9 @@ class ProductList extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10), // Add some spacing between the title row and the products row
+          const SizedBox(
+              height:
+                  10), // Add some spacing between the title row and the products row
           SizedBox(
             height: 75, // Adjust the height of the container
             child: ListView.builder(

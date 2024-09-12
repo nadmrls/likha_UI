@@ -21,12 +21,11 @@ class GraphWidget extends StatelessWidget {
       child: Padding( // Added padding for a better layout
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, // Aligns text to the left
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: EdgeInsets.only(left: screenWidth * 0.05 ),
               child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('300', style: AppTextStyles.allDRstylevalue),
                 Text('Statistics', style: AppTextStyles.titleTextStyle),
